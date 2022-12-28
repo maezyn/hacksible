@@ -1,0 +1,16 @@
+---
+- name: Install pip packages
+  become: true
+  block:
+  - name: Add the requirements.txt file
+    template: src=requirements.txt dest={{ BASE_DIR }}/requirements.txt
+    become: true
+
+  - name: Create a virtualenv directory
+    file: path={{ VENV_DIR }} state=directory
+
+  - name: Install dependencies
+    pip:
+      requirements: "{{ BASE_DIR }}/requirements.txt"
+      virtualenv: "{{ VENV_DIR }}"
+      virtualenv_command: "python3 -m venv venv"

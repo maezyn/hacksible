@@ -1,0 +1,6 @@
+---
+- name: Red team VM playbook
+  hosts: all
+  user: "{{ DEPLOY_USER }}"
+  roles:
+    - common

@@ -1,0 +1,3 @@
+DEPLOY_USER: red
+BASE_DIR: /home/red
+VENV_DIR: /home/red
